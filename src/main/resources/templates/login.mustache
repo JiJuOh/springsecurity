@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+     <!-- XMLHttpREquest 요청시 setRequestHeader 를 통해 _csrf, _csrf_headerKey 에대한 토큰값넣어 요청 -->
+    <meta name="_csrf" content="{{_csrf.token}}">
+    <meta name="_csrf_header" content="{{_csrf.headerName}}">
+    
+    <title>Login</title>
+</head>
+<body>
+    <h1>login page</h1>
+    <hr/>
+    <form action="/loginProc" method="post" name="loginForm">
+    	<label>ID : </label>
+    	<input id="username" type="text" name="username" placeholder="id"/>
+    	<label>PASSWORD : </label>
+    	<input id="password" type="password" name="password" placeholder="password"/>
+    	<input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+    	<input type="submit" value="Login" />
+    </form> 
+</body>
+</html>
